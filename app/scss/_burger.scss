@@ -1,0 +1,133 @@
+.nav__check {
+    display: none;
+}
+
+.nav {
+    display: none;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: flex;
+    }
+}
+
+.nav__showmenu {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    z-index: 11;
+    display: inline-block;
+    padding: 5px 10px 10px;
+    margin-left: -10px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.nav__back {
+    //position: fixed;
+    top: 0;
+    right: 0;
+    transition: background-color .3s;
+}
+
+.menu,
+.menu__submenu {
+    padding: 0;
+    // overflow: hidden;
+    color: #fff;
+    list-style: none;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: block;
+    width: 220px;
+    padding: 50px 30px;
+    margin: 0;
+    overflow-y: auto;
+    line-height: 2em;
+    text-transform: uppercase;
+    background-color: darken($brand-color-gray-text, 10%);
+    -webkit-overflow-scrolling: touch;
+    transition: transform .3s;
+    transform: translateX(100%);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.menu__submenu {
+    max-height: 0;
+    font-size: .8em;
+    background-color: $brand-color-gray-bg;
+    transition: max-height .3s ease-in-out;
+}
+
+.menu__showsub {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    margin-top: -34px;
+    line-height: normal;
+}
+
+.menu__item {
+    display: block;
+    margin-bottom: 20px;
+    color: $brand-color-gray-bg;
+    text-align: left;
+    text-decoration: none;
+}
+
+.menu__item-optional {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: $brand-color-gray-bg;
+    text-align: left;
+    text-decoration: none;
+}
+
+.menu__item-optional:hover {
+    color: darken($brand-color-gray-bg, 40%);
+}
+
+.menu__submenu .menu__item .menu__item-optional {
+    color: $brand-color-gray-text;
+}
+
+.nav__check:checked ~ .nav__back {
+    bottom: 0;
+    background-color: $brand-color-gray-text;
+}
+
+.menu__item:hover,
+.nav__showmenu:hover,
+.menu__showsub:hover {
+    color: darken($brand-color-gray-bg, 40%);
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav__check:checked + .nav__showmenu {
+    color: $brand-color-gray-bg;
+}
+
+.menu__check:checked ~ .menu__submenu {
+    max-height: 100vh;
+}
+
+.menu__check:checked + .menu__showsub {
+    transform: rotate(180deg);
+}
+
+.nav__check:checked ~ .menu {
+    transform: translateX(0);
+}
