@@ -24,11 +24,11 @@ gulp.task('sass', function (done) {
         .pipe(sass({
             outputStyle: 'expanded'
         }))
-        .pipe(gulpMedia())
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 8 versions'],
             cascade: false
         }))
+        .pipe(gulpMedia())
         .pipe(sass({
             outputStyle: 'compressed'
         }))
@@ -37,7 +37,6 @@ gulp.task('sass', function (done) {
         }))
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.stream());
-
     done();
 });
 
@@ -77,28 +76,14 @@ gulp.task('styleLint', function () {
 });
 
 gulp.task('export', (done) => {
-
     del.sync('dist');
     done();
-
-    const buildHtml = gulp.src('app/**/*.html')
-        .pipe(gulp.dest('dist'));
-
-    const buildCss = gulp.src('app/css/**/*.css')
-        .pipe(gulp.dest('dist/css'));
-
-    const buildJs = gulp.src('app/js/*.*')
-        .pipe(gulp.dest('dist/js'));
-
-    const buildImg = gulp.src('app/img/**/*.*')
-        .pipe(gulp.dest('dist/img'));
-
-    const buildPdf = gulp.src('app/pdf/**/*.*')
-        .pipe(gulp.dest('dist/pdf'));
-
-    const buildIco = gulp.src('app/*.ico')
-        .pipe(gulp.dest('dist'));
-
+    gulp.src('app/**/*.html').pipe(gulp.dest('dist'));
+    gulp.src('app/css/**/*.css').pipe(gulp.dest('dist/css'));
+    gulp.src('app/js/*.*').pipe(gulp.dest('dist/js'));
+    gulp.src('app/img/**/*.*').pipe(gulp.dest('dist/img'));
+    gulp.src('app/pdf/**/*.*').pipe(gulp.dest('dist/pdf'));
+    gulp.src('app/*.ico').pipe(gulp.dest('dist'));
     done();
 });
 
@@ -106,7 +91,6 @@ gulp.task('serve', function (done) {
     browserSync.init({
         server: './app/'
     });
-
     gulp.watch('app/scss/**/*.scss', gulp.series('styleLint'));
     gulp.watch('app/scss/**/*.scss', gulp.series('sass'));
     gulp.watch('app/js/modules/**/*.js', gulp.series('js'));
