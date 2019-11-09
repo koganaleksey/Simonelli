@@ -324,12 +324,12 @@ body {
 
 // ===== Cover =====
 .section-cover {
-    background-image: url('../img/coffee_desktop_background_wallpaper_3-wide copy.png');
-    background-position: center center;
+    background-image: url('../img/sl-00_mine.jpg');
+    background-position: left top;
     background-size: cover;
 
     @include _768 {
-        background-position: center left;
+        background-position: left;
     }
 
     & .section-inner {
@@ -356,12 +356,12 @@ body {
             }
 
             &__supTitle {
-                margin-bottom: 20px;
+                //margin-bottom: 20px;
                 font-size: 14px;
                 font-weight: bold;
                 line-height: 18px;
-                color: white;
-                text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+                color: $brand-color;
+                //text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 
                 @include _768 {
                     margin-bottom: 0;
@@ -375,12 +375,13 @@ body {
                     font-size: 36px;
                     font-weight: bold;
                     line-height: 44px;
-                    color: white;
-                    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+                    color: $brand-color;
+                    //text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 
                     @include _768 {
                         margin-bottom: 20px;
                         font-size: 26px;
+                        line-height: 34px;
                     }
                 }
             }
