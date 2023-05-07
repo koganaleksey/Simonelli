@@ -15,7 +15,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babelify": "^10.0.0",
     "beautifier": "^0.1.7",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.1",
     "browserify": "^16.5.0",
     "browserslist": "^4.7.0",
     "del": "^5.1.0",
